@@ -12,11 +12,9 @@ title:
 需要注意的是，通常只需要为首屏图片设置 `nzPriority` 因此在循环生成的模版中只需要为靠前的子项添加即可，例如：
 
 ```html
-<ng-container *ngFor="let product of products; index as i">
-  <nz-image
-    [nzPriority]="i <= 8"
-  ></nz-image>
-</ng-container>
+@for (product of products; track $index) {
+  <nz-image [nzPriority]="i <= 8" />
+}
 ```
 
 ## en-US

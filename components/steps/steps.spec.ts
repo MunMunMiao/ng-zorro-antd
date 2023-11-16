@@ -593,7 +593,9 @@ export class NzTestInnerStepTemplateComponent {}
 @Component({
   template: `
     <nz-steps>
-      <nz-step *ngFor="let step of steps; trackBy: trackById"></nz-step>
+      @for (step of steps; track trackById($index, step)) {
+        <nz-step></nz-step>
+      }
     </nz-steps>
   `
 })
@@ -612,7 +614,9 @@ export class NzTestStepForComponent {
 @Component({
   template: `
     <nz-steps [nzCurrent]="1">
-      <nz-step *ngFor="let step of steps; trackBy: trackById"></nz-step>
+      @for (step of steps; track trackById($index, step)) {
+        <nz-step></nz-step>
+      }
     </nz-steps>
   `
 })

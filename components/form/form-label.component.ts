@@ -42,11 +42,13 @@ function toTooltipIcon(value: string | NzFormTooltipIcon): Required<NzFormToolti
   template: `
     <label [attr.for]="nzFor" [class.ant-form-item-no-colon]="nzNoColon" [class.ant-form-item-required]="nzRequired">
       <ng-content></ng-content>
-      <span *ngIf="nzTooltipTitle" class="ant-form-item-tooltip" nz-tooltip [nzTooltipTitle]="nzTooltipTitle">
-        <ng-container *nzStringTemplateOutlet="tooltipIcon.type; let tooltipIconType">
-          <span nz-icon [nzType]="tooltipIconType" [nzTheme]="tooltipIcon.theme"></span>
-        </ng-container>
-      </span>
+      @if (nzTooltipTitle) {
+        <span class="ant-form-item-tooltip" nz-tooltip [nzTooltipTitle]="nzTooltipTitle">
+          <ng-container *nzStringTemplateOutlet="tooltipIcon.type; let tooltipIconType">
+            <span nz-icon [nzType]="tooltipIconType" [nzTheme]="tooltipIcon.theme"></span>
+          </ng-container>
+        </span>
+      }
     </label>
   `,
   host: {

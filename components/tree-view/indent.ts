@@ -23,7 +23,9 @@ const BUILD_INDENTS_SCHEDULER = typeof requestAnimationFrame !== 'undefined' ? a
 @Component({
   selector: 'nz-tree-node-indents',
   template: `
-    <span class="ant-tree-indent-unit" [class.ant-tree-indent-unit-end]="!isEnd" *ngFor="let isEnd of indents"></span>
+    @for (isEnd of indents; track isEnd) {
+      <span class="ant-tree-indent-unit" [class.ant-tree-indent-unit-end]="!isEnd"></span>
+    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

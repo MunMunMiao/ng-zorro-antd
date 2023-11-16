@@ -38,7 +38,9 @@ import { COMPOSITION_BUFFER_MODE } from '@angular/forms';
       (compositionstart)="setCompositionState(true)"
       (compositionend)="setCompositionState(false)"
     />
-    <span #mirrorElement *ngIf="mirrorSync" class="ant-select-selection-search-mirror"></span>
+    @if (mirrorSync) {
+      <span #mirrorElement class="ant-select-selection-search-mirror"></span>
+    }
   `,
   host: { class: 'ant-select-selection-search' },
   providers: [{ provide: COMPOSITION_BUFFER_MODE, useValue: false }]

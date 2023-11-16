@@ -2106,9 +2106,9 @@ const options5: any[] = []; // eslint-disable-line @typescript-eslint/no-explici
     ></nz-cascader>
 
     <ng-template #renderTpl let-labels="labels" let-selectedOptions="selectedOptions">
-      <ng-container *ngFor="let label of labels; let i = index; let isLast = last">
+      @for (label of labels; track label; let i = $index; let isLast = $last) {
         {{ label }}{{ isLast ? '' : ' | ' }}
-      </ng-container>
+      }
     </ng-template>
   `,
   styles: [

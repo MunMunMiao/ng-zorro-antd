@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, DebugElement, Inject, NgModule, TemplateRef, ViewChild } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -316,14 +315,14 @@ export class NzEmptyTestCustomComponent {
 }
 
 @NgModule({
-  imports: [CommonModule, NzEmptyModule, NzListModule],
+  imports: [NzEmptyModule, NzListModule],
   declarations: [NzEmptyTestServiceComponent, NzEmptyTestCustomComponent],
   exports: [NzEmptyTestServiceComponent, NzEmptyTestCustomComponent]
 })
 export class NzEmptyTestServiceModule {}
 
 @NgModule({
-  imports: [CommonModule, NzEmptyModule, NzListModule],
+  imports: [NzEmptyModule, NzListModule],
   declarations: [NzEmptyTestServiceComponent, NzEmptyTestCustomComponent],
   exports: [NzEmptyTestServiceComponent, NzEmptyTestCustomComponent],
   providers: [

@@ -30,12 +30,9 @@ import { NzResizeObserver } from 'ng-zorro-antd/cdk/resize-observer';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   template: `
-    <td
-      #tdElement
-      class="nz-disable-td"
-      style="padding: 0px; border: 0px; height: 0px;"
-      *ngFor="let th of listOfMeasureColumn; trackBy: trackByFunc"
-    ></td>
+    @for (th of listOfMeasureColumn; track trackByFunc($index, th)) {
+      <td #tdElement class="nz-disable-td" style="padding: 0px; border: 0px; height: 0px;"></td>
+    }
   `,
   host: { class: 'ant-table-measure-now' }
 })

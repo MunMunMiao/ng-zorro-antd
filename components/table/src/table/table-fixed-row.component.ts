@@ -25,14 +25,17 @@ import { NzTableStyleService } from '../table-style.service';
   encapsulation: ViewEncapsulation.None,
   template: `
     <td class="nz-disable-td ant-table-cell" #tdElement>
-      <div
-        class="ant-table-expanded-row-fixed"
-        *ngIf="enableAutoMeasure$ | async; else contentTemplate"
-        style="position: sticky; left: 0px; overflow: hidden;"
-        [style.width.px]="hostWidth$ | async"
-      >
-        <ng-template [ngTemplateOutlet]="contentTemplate"></ng-template>
-      </div>
+      @if (enableAutoMeasure$ | async) {
+        <div
+          class="ant-table-expanded-row-fixed"
+          style="position: sticky; left: 0px; overflow: hidden;"
+          [style.width.px]="hostWidth$ | async"
+        >
+          <ng-template [ngTemplateOutlet]="contentTemplate"></ng-template>
+        </div>
+      } @else {
+        <ng-content></ng-content>
+      }
     </td>
     <ng-template #contentTemplate><ng-content></ng-content></ng-template>
   `

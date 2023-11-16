@@ -88,9 +88,11 @@ function normalizeDataSource(value: AutocompleteDataSource): AutocompleteDataSou
         <ng-content></ng-content>
       </ng-template>
       <ng-template #optionsTemplate>
-        <nz-auto-option *ngFor="let option of normalizedDataSource" [nzValue]="option.value" [nzLabel]="option.label">
-          {{ option.label }}
-        </nz-auto-option>
+        @for (option of normalizedDataSource; track option) {
+          <nz-auto-option [nzValue]="option.value" [nzLabel]="option.label">
+            {{ option.label }}
+          </nz-auto-option>
+        }
       </ng-template>
     </ng-template>
   `,

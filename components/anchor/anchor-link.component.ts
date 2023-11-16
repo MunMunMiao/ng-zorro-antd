@@ -35,7 +35,11 @@ import { NzAnchorComponent } from './anchor.component';
       [target]="nzTarget"
       (click)="goToClick($event)"
     >
-      <span *ngIf="titleStr; else titleTpl || nzTemplate">{{ titleStr }}</span>
+      @if (titleStr) {
+        <span>{{ titleStr }}</span>
+      } @else {
+        #titleTpl || nzTemplate|
+      }
     </a>
     <ng-content></ng-content>
   `,

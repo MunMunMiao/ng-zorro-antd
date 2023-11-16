@@ -40,9 +40,9 @@ import { NzTableStyleService } from '../table-style.service';
     <ng-template #contentTemplate>
       <ng-content></ng-content>
     </ng-template>
-    <ng-container *ngIf="!isInsideTable">
+    @if (!isInsideTable) {
       <ng-template [ngTemplateOutlet]="contentTemplate"></ng-template>
-    </ng-container>
+    }
   `
 })
 export class NzTheadComponent<T> implements AfterContentInit, OnDestroy, AfterViewInit, OnInit {
