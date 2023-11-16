@@ -184,7 +184,11 @@ export class NzCronExpressionComponent implements OnInit, OnChanges, ControlValu
     this.cdr.markForCheck();
   }
 
-  constructor(private formBuilder: FormBuilder, private cdr: ChangeDetectorRef, private i18n: NzI18nService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private cdr: ChangeDetectorRef,
+    private i18n: NzI18nService
+  ) {
     this.validateForm = this.formBuilder.nonNullable.group({
       second: ['0', Validators.required, this.checkValid],
       minute: ['*', Validators.required, this.checkValid],
